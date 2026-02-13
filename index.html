@@ -2,27 +2,33 @@
 <html>
 <head>
     <title>Valentine Proposal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
         body {
             background-color: pink;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
             text-align: center;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            min-height: 100vh;
+            padding: 20px;
         }
 
         #container {
             background: rgba(255,255,255,0.3);
             padding: 40px;
             border-radius: 20px;
+            max-width: 500px;
+            width: 100%;
         }
 
         h1 {
-            font-size: 40px;
+            font-size: 32px;
         }
 
         .heart {
@@ -37,7 +43,7 @@
         }
 
         button {
-            font-size: 20px;
+            font-size: 18px;
             padding: 10px 20px;
             margin: 10px;
             border: none;
@@ -60,49 +66,42 @@
             font-size: 18px;
             color: red;
         }
+        #finalSection {
+            display: none;
+        }
+
+        #finalSection img {
+            width: 280px;
+            max-width: 90%;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+        }
 
         #finalMessage {
-            font-size: 40px;
+            font-size: 28px;
             color: red;
-            display: none;
         }
     </style>
 </head>
-
 <body>
-
 <div id="container">
-
     <h1 id="question">Will you be my valentine?</h1>
-
     <div class="heart">❤️</div>
-
     <div id="buttons">
         <button id="yesBtn" onclick="sayYes()">Yes</button>
         <button id="noBtn" onclick="sayNo()">No</button>
     </div>
-
     <div id="text"></div>
-<div id="finalSection" style="display:none; text-align:center;">
+    <div id="finalSection">
 
-    <img src="penguin.jpg"
-         alt="Cute Penguin"
-         style="
-            width:300px;
-            max-width:80%;
-            border-radius:20px;
-            margin-bottom:20px;
-            box-shadow:0 0 20px rgba(0,0,0,0.3);
-         ">
+        <img src="penguin.jpg" alt="Cute Penguin">
 
-    <div id="finalMessage"
-         style="font-size:35px; color:red;">
-        yayaayya i lovee youuu soooo muchhh anuuu ❤️
+        <div id="finalMessage">
+            yayaayya i lovee youuu soooo muchhh anuuu ❤️
+        </div>
     </div>
-
 </div>
-
-
 <script>
     let noClicks = 0;
 
@@ -110,8 +109,6 @@
         noClicks++;
 
         let noBtn = document.getElementById("noBtn");
-
-        // shrink button
         let scale = 1 - (noClicks * 0.3);
         noBtn.style.transform = "scale(" + scale + ")";
 
@@ -122,16 +119,13 @@
     }
 
     function sayYes() {
-    document.getElementById("question").style.display = "none";
-    document.querySelector(".heart").style.display = "none";
-    document.getElementById("buttons").style.display = "none";
-    document.getElementById("text").style.display = "none";
+        document.getElementById("question").style.display = "none";
+        document.querySelector(".heart").style.display = "none";
+        document.getElementById("buttons").style.display = "none";
+        document.getElementById("text").style.display = "none";
 
-    document.getElementById("finalSection").style.display = "block";
-}
-
+        document.getElementById("finalSection").style.display = "block";
+    }
 </script>
-
 </body>
 </html>
-
